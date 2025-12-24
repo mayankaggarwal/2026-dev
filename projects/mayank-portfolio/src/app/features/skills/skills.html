@@ -1,0 +1,32 @@
+<section>
+  <h2>Skills</h2>
+  <div class="skills-group">
+    <h3>Frontend</h3>
+    <div class="badges">
+      @for (item of skills.frontend; track $index) {
+        <span #skillBadge>{{ item }}</span>
+      }
+    </div>
+
+    <h3>Backend</h3>
+    <div class="badges">
+      @for (item of skills.backend; track $index) {
+        <span #skillBadge>{{ item }}</span>
+      }
+    </div>
+
+    <h3>Cloud & DevOps</h3>
+    <div class="badges">
+      @for (item of skills.cloudDevOps; track $index) {
+        <span #skillBadge>{{ item }}</span>
+      }
+    </div>
+
+    <h3>Databases</h3>
+    <div class="badges">
+      @for (item of skills.databases; track $index) {
+        <span #skillBadge>{{ item }}</span>
+      }
+    </div>
+  </div>
+</section>

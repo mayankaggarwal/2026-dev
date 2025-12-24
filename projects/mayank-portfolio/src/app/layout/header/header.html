@@ -1,0 +1,43 @@
+<header class="header">
+  <div class="header-inner">
+
+    <div class="logo">Mayank Aggarwal</div>
+
+    <!-- Desktop Nav -->
+    <nav class="nav nav-desktop">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">About</a>
+      <a routerLink="/experience">Experience</a>
+      <a routerLink="/education">Education</a>
+      <a routerLink="/skills">Skills</a>
+      <a routerLink="/projects">Projects</a>
+      <a routerLink="/achievements">Achievements</a>
+    </nav>
+
+    <!-- Hamburger -->
+<button
+  type="button"
+  class="hamburger"
+  (click)="toggleMenu($event)"
+>
+  ☰
+</button>
+
+  </div>
+
+  <!-- Mobile Nav -->
+<div
+  class="overlay"
+  [class.show]="menuOpen()"
+  (click)="closeMenu()"
+></div>
+
+<!-- Mobile Navigation -->
+<nav class="nav nav-mobile" [class.open]="menuOpen()">
+  <a routerLink="/" (click)="closeMenu()">About</a>
+  <a routerLink="/experience" (click)="closeMenu()">Experience</a>
+  <a routerLink="/education">Education</a>
+  <a routerLink="/skills" (click)="closeMenu()">Skills</a>
+  <a routerLink="/projects" (click)="closeMenu()">Projects</a>
+  <a routerLink="/achievements" (click)="closeMenu()">Achievements</a>
+</nav>
+</header>

@@ -1,0 +1,62 @@
+.cap {
+  margin-right: 0.5rem;
+}
+
+/* Lists */
+.education-list,
+.cert-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Cards */
+.education-card,
+.cert-card {
+  background: #020617;
+  padding: 1.5rem;
+  border-radius: 10px;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Scroll-in */
+.education-card.visible,
+.cert-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover */
+.education-card:hover,
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.institution {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.meta {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: #cbd5f5;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Certifications */
+.cert-card {
+  border-left: 4px solid #38bdf8;
+}
+
+.cert-title {
+  margin-top: 3rem;
+}

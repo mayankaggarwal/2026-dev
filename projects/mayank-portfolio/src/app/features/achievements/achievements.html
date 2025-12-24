@@ -1,0 +1,14 @@
+<section class="achievements">
+  <h2>Achievements</h2>
+
+  <div class="achievements-grid">
+    @for (a of achievements;track $index) {
+      <div class="achievement-card" #achievementCard>
+        <div class="icon">{{ a.icon }}</div>
+
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.description }}</p>
+      </div>
+    }
+  </div>
+</section>

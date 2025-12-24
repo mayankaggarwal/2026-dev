@@ -1,0 +1,26 @@
+<section class="experience">
+  <h2>Experience</h2>
+
+  <div class="timeline" #timeline>
+    @for (exp of experience; track $index) {
+        <div class="timeline-item" #timelineItem>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>
+                {{ exp.role }}
+                <span class="company">— {{ exp.company }}</span>
+                </h3>
+                <span class="period">{{ exp.period }}</span>
+
+                <ul>
+                @for (point of exp.highlights;track point) {
+                    <li>{{ point }}</li>
+                }
+                </ul>
+            </div>
+        </div>
+    } @empty {
+        <div class="empty-message">No items available.</div>
+    }
+  </div>
+</section>

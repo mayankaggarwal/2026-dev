@@ -1,0 +1,22 @@
+<section>
+  <h2>Projects</h2>
+
+  <div class="projects-grid">
+    @for (project of projects; track project.name) {
+      <div class="project-card" #projectCard>
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+
+        <div class="tech">
+          @for (tech of project.tech; track $index) {
+            <span>
+              {{ tech }}
+            </span>
+          }
+        </div>
+    </div>
+    } @empty {
+        <div class="empty-message">No items available.</div>
+    }
+  </div>
+</section>

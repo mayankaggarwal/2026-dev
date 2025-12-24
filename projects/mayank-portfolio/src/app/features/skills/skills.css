@@ -1,0 +1,39 @@
+.skills-group h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Badge container */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* Badge initial state */
+.badges span {
+  padding: 0.4rem 0.85rem;
+  background: #1e293b;
+  border-radius: 999px;
+  font-size: 0.8rem;
+
+  opacity: 0;
+  transform: translateY(10px) scale(0.9);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    background-color 0.2s ease;
+}
+
+/* Animate in */
+.badges span.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Hover */
+.badges span:hover {
+  background-color: #38bdf8;
+  color: #020617;
+  transform: scale(1.1);
+}

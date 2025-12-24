@@ -1,0 +1,29 @@
+<section class="education">
+  <h2>
+    <span class="cap">🎓</span>
+    Education
+  </h2>
+
+  <div class="education-list">
+    @for (edu of education;track $index) {
+        <div class="education-card" #eduCard>
+        <h3>{{ edu.degree }}</h3>
+        <p class="institution">{{ edu.institution }}</p>
+        <span class="period">{{ edu.period }}</span>
+        <br/>
+        <span class="score">Score: {{ edu.score }}</span>
+        </div>
+    }
+  </div>
+
+  <h2 class="cert-title">Certifications & Training</h2>
+
+  <div class="cert-list">
+    @for (cert of certifications;track $index) {
+         <div class="cert-card" #eduCard>
+            <h3>{{ cert.title }}</h3>
+            <p>{{ cert.description }}</p>
+        </div>
+    }
+  </div>
+</section>

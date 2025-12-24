@@ -1,0 +1,151 @@
+.experience {
+  position: relative;
+}
+
+/* Timeline vertical line */
+.timeline {
+  position: relative;
+  margin-left: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #1e293b;
+
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1s ease-out;
+}
+
+/* Trigger line draw */
+.timeline.draw::before {
+  transform: scaleY(1);
+}
+
+/* Each item */
+.timeline-item {
+  position: relative;
+  padding: 2rem 0 2rem 2rem;
+}
+
+/* Dot */
+.timeline-dot {
+  position: absolute;
+  left: -9px;
+  top: 2.2rem;
+  width: 14px;
+  height: 14px;
+  background-color: #38bdf8;
+  border-radius: 50%;
+  border: 2px solid #020617;
+
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Dot animation trigger */
+.timeline-item.visible .timeline-dot {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.2s;
+}
+
+/* Content box */
+/* Card hover */
+.timeline-content {
+  background: #020617;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Dot hover */
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.25);
+  background-color: #7dd3fc;
+}
+
+/* Title */
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.company {
+  font-weight: 400;
+  color: #94a3b8;
+}
+
+/* Period */
+.period {
+  display: inline-block;
+  margin: 0.4rem 0 1rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* Bullet points */
+.timeline-content ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.timeline-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* ===== ANIMATION DEFAULT STATE ===== */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ===== WHEN VISIBLE ===== */
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: stagger effect */
+.timeline-item:nth-child(odd) {
+  transition-delay: 0.1s;
+}
+
+.timeline-item:nth-child(even) {
+  transition-delay: 0.2s;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    margin-left: 0.75rem;
+    padding-left: 1rem;
+  }
+
+  .timeline-item {
+    padding-left: 1.25rem;
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .timeline-dot {
+    left: -7px;
+  }
+
+  .timeline-content {
+    padding: 1.25rem;
+  }
+}

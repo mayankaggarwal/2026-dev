@@ -1,0 +1,60 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Initial state */
+.project-card {
+  background: #020617;
+  padding: 1.5rem;
+  border-radius: 10px;
+
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Scroll-in */
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Hover */
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: #cbd5f5;
+  line-height: 1.5;
+}
+
+/* Tech badges */
+.tech {
+  margin-top: 1rem;
+}
+
+.tech span {
+  display: inline-block;
+  margin: 0.25rem;
+  padding: 0.35rem 0.7rem;
+  background: #1e293b;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover .tech span {
+  transform: translateY(-2px);
+}
