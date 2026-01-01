@@ -1,0 +1,14 @@
+@mydev.MCPSample.Api_HostAddress = http://localhost:5069
+
+GET {{mydev.MCPSample.Api_HostAddress}}/healthz/
+Accept: application/json
+
+### Get All Tasks
+GET {{mydev.MCPSample.Api_HostAddress}}/api/tasks
+
+### Get Task By Id
+GET {{mydev.MCPSample.Api_HostAddress}}/api/tasks/4
+
+### Create Task
+POST {{mydev.MCPSample.Api_HostAddress}}/api/tasks?title=Hello%20World&status=Active
+Accept: application/json
