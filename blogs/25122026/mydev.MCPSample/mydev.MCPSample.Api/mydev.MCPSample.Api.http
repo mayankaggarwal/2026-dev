@@ -5,6 +5,7 @@ Accept: application/json
 
 ### Get All Tasks
 GET {{mydev.MCPSample.Api_HostAddress}}/api/tasks
+X-API-KEY: 730b6d8f-87ab-4293-b3a0-8d3188e345e8
 
 ### Get Task By Id
 GET {{mydev.MCPSample.Api_HostAddress}}/api/tasks/4

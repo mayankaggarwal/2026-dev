@@ -1,0 +1,11 @@
+{
+    "chat.mcp.serverSampling": {
+        "2026-dev/.vscode/mcp.json: my-sample-server": {
+            "allowedModels": [
+                "copilot/auto",
+                "copilotcli/claude-sonnet-4.6",
+                "claude-code/claude-sonnet-4.6"
+            ]
+        }
+    }
+}

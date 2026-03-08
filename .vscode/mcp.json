@@ -1,0 +1,32 @@
+{
+    "servers": {
+		"mysampleserver": {
+			"type": "http",
+			"url": "http://localhost:5069/tasks-mcp",
+			"headers": {
+                    "X-API-Key": "${input:api-key}"
+            }
+		},
+		"github": {
+      		"type": "http",
+      		"url": "https://api.githubcopilot.com/mcp/",
+      		"headers": {
+        		"Authorization": "Bearer ${input:github_mcp_pat}"
+      		}
+    	}
+	},
+	"inputs": [
+		{
+		"type": "promptString",
+		"id": "github_mcp_pat",
+		"description": "GitHub Personal Access Token",
+		"password": true
+		},
+	    {
+			"type": "promptString",
+            "id": "api-key",
+            "description": "MCP Server API Key",
+            "password": true
+        }
+  ]
+}

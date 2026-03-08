@@ -1,4 +1,6 @@
-﻿namespace mydev.MCPSample.Api.Registrations
+﻿using mydev.MCPSample.Api.TaskManagement;
+
+namespace mydev.MCPSample.Api.Registrations
 {
     public static class McpRegistration
     {
@@ -8,13 +10,15 @@
             {
                 o.ServerInfo = new()
                 {
-                    Name = "my-sample-mcp",
+                    Name = "mysamplemcp",
                     Description = "My Sample API with MCP capabilities",
                     Version = "1.0.0"
                 };
             })
             .WithHttpTransport()
-            .WithToolsFromAssembly();
+            .WithPromptsFromAssembly()
+            .WithToolsFromAssembly()
+            .WithResources<ChartResources>();
         }
     }
 }

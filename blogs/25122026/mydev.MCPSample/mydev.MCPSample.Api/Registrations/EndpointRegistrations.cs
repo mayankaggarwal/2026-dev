@@ -6,7 +6,7 @@ namespace mydev.MCPSample.Api.Registrations
     {
         public static void RegisterEndpoints(this WebApplication app)
         {
-            var api = app.MapGroup("/api");
+            var api = app.MapGroup("/api").RequireAuthorization();
             TaskEndpoints.Add(api);
         }
     }

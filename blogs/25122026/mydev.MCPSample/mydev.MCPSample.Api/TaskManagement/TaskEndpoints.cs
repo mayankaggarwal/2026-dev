@@ -10,9 +10,9 @@ namespace mydev.MCPSample.Api.TaskManagement
         public static void Add(RouteGroupBuilder api)
         {
             var tasks = api.MapGroup("/tasks");
-            tasks.MapGet("/", GetAllTasks).WithName("GetTasks").WithOpenApi();
-            tasks.MapGet("/{taskId}", GetTaskById).WithName("GetTaskById").WithOpenApi();
-            tasks.MapPost("/", CreateTask).WithName("CreateTask").WithOpenApi();
+            tasks.MapGet("/", GetAllTasks).WithName("GetTasks");
+            tasks.MapGet("/{taskId}", GetTaskById).WithName("GetTaskById");
+            tasks.MapPost("/", CreateTask).WithName("CreateTask");
         }
 
         [McpServerTool(Name = "create_mytask"), Description("Create the task for the application.")]
@@ -48,6 +48,29 @@ namespace mydev.MCPSample.Api.TaskManagement
 
             return tasks;
         }
+
+        [McpServerTool, Description("Generates a sales chart for the specified year.")]
+        public static object GetSalesChart(int year)
+        {
+            var data = new
+            {
+                months = new[] { "Jan", "Feb", "Mar" },
+                values = new[] { 10, 25, 15 }
+            };
+
+            // Returning '_meta' tells Copilot to render the UI resource
+            return new
+            {
+                content = new[] {
+                new { type = "text", text = $"Here is the sales chart for {year}:" }
+            },
+                _meta = new
+                {
+                    ui = new { resourceUri = "ui://charts/sales-summary" }
+                },
+                data = data // This data is passed to the iframe via postMessage
+            };
+        }
     }
 
     public class MyTask
@@ -55,5 +78,45 @@ namespace mydev.MCPSample.Api.TaskManagement
         public int Id { get; set; }
         public required string Title { get; set; }
         public required string Status { get; set; }
+    }
+
+    public class ChartResources
+    {
+        [McpServerResource(UriTemplate = "ui://charts/sales-summary", MimeType = "text/html")]
+        public static string GetChartUI()
+        {
+            return """
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<canvas id="chart"></canvas>
+
+<script>
+window.addEventListener('message', (event) => {
+    const data = event.data.payload;
+
+    const ctx = document.getElementById('chart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: data.months,
+            datasets: [{
+                label: 'Sales',
+                data: data.values
+            }]
+        }
+    });
+});
+</script>
+
+</body>
+</html>
+""";
+        }
     }
 }

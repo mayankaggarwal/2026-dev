@@ -1,5 +1,7 @@
 
+using mydev.MCPSample.Api.Auth;
 using mydev.MCPSample.Api.Registrations;
+using mydev.MCPSample.Api.TaskManagement;
 
 namespace mydev.MCPSample.Api
 {
@@ -9,8 +11,10 @@ namespace mydev.MCPSample.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddApiKeyAuthentication(builder.Configuration["McpServerApiKey"]!);
             builder.Services.AddAuthorization();
+            builder.Services.AddSingleton<ChartResources>();
+            // Add services to the container.
             builder.RegisterMcpServices();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -27,16 +31,15 @@ namespace mydev.MCPSample.Api
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
-            
             app.MapGet("/healthz", (HttpContext httpContext) =>
             {
                 return "Healthy";
             })
-            .WithName("GetHealth")
-            .WithOpenApi();
+            .WithName("GetHealth");
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.RegisterEndpoints();
-            app.MapMcp("/tasks-mcp");
+            app.MapMcp("/tasks-mcp").RequireAuthorization();
             await app.RunAsync();
         }
     }

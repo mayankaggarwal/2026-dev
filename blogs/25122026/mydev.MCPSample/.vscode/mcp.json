@@ -1,8 +1,0 @@
-{
-    "servers": {
-		"my-sample-server": {
-			"type": "http",
-			"url": "http://localhost:5069/tasks-mcp",
-		}
-	}
-}
