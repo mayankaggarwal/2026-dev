@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="mydev.MyAgents.ConsoleRunner/mydev.MyAgents.ConsoleRunner.csproj" />
+  <Project Path="SKOllamaAgent/SKOllamaAgent.csproj" />
+</Solution>
