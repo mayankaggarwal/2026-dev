@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/tools/">
+    <File Path="tools/create-default-project.md" />
+  </Folder>
+  <Project Path="ExtensionsAI.labs/ExtensionsAI.labs.csproj" Id="1408a434-2551-42f1-8f83-af2ec4ec334e" />
+  <Project Path="ExtensionsAI.Runner/ExtensionsAI.Runner.csproj" Id="74930628-ac51-451e-a8ac-4433c164c4db" />
+</Solution>
