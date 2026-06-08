@@ -54,6 +54,7 @@ namespace ExtensionsAI.labs
             services.AddKeyedScoped<IRunner, Day1.OllamaExample>(2);
             services.AddKeyedScoped<IRunner, Day2.MinimalAssistant>(3);
             services.AddKeyedScoped<IRunner, Day3.MyProfileAssistant>(4);
+            services.AddKeyedScoped<IRunner, Day3.MyProfileAssistantWithEvaluation>(5);
 
             return services;
         }

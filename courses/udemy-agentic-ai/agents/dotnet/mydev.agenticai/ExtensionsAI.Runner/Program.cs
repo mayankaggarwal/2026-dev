@@ -27,7 +27,7 @@ namespace ExtensionsAI.Runner
                 .Build();
 
             var app = host.Services.GetRequiredService<ILabRunner>();
-            await app.Run(4);
+            await app.Run(5);
         }
     }
 }

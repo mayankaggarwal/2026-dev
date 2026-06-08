@@ -34,3 +34,5 @@ yarn-error.log*
 
 # Ensure .vs folders in all subdirectories are ignored
 **/.vs/
+
+refprojects/
