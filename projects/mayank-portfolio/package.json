@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:gh": "ng build --base-href=/2026-dev/projects/hosting/",
+    "deploy:gh": "ng build --base-href=/2026-dev/projects/hosting/ && mkdir dist\\gh-pages\\projects\\hosting && xcopy dist\\mayank-portfolio\\browser\\* dist\\gh-pages\\projects\\hosting\\ /E /I /Y && npx angular-cli-ghpages --dir=dist/gh-pages"
   },
   "prettier": {
     "printWidth": 100,

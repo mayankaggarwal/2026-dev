@@ -23,6 +23,7 @@ experience = [
     period: 'June 2023 – Present',
     highlights: [
       'Leading a team delivering large-scale modernization and migration initiatives.',
+      'Incorporating AI capabilities in product roadmaps and driving GenAI readiness using MCP and agentic approaches.',
       'Migrated legacy ActiveX-based UI to Angular 15.',
       'Integrated Web APIs with OIDC providers and exposed secure public APIs.',
       'Migrated on-prem infrastructure to AWS using Lift-and-Shift strategy.'
