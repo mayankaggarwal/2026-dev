@@ -36,5 +36,11 @@ export const routes: Routes = [
         import('./features/skills/skills')
             .then(m => m.Skills)
     },
+    {
+        path: 'chat',
+        loadComponent: () =>
+        import('./features/chat/chat')
+            .then(m => m.Chat)
+    },
     { path: '**', redirectTo: '' }
 ];

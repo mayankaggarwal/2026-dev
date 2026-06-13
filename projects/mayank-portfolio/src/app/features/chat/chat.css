@@ -1,0 +1,162 @@
+:host {
+  display: block;
+  height: 100%;
+  background: #020617;
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.chat-header {
+  height: 72px;
+  min-height: 72px;
+
+  padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #1e293b;
+
+  background: #020617;
+}
+
+.chat-header h1 {
+  margin: 0;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: #e5e7eb;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat-header button {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #cbd5f5;
+
+  cursor: pointer;
+
+  font-size: 1.25rem;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.chat-header button:hover {
+  background: #1e293b;
+  color: #38bdf8;
+}
+
+/* ========================================
+   BODY
+======================================== */
+
+.chat-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.chat-iframe {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+
+  display: block;
+
+  background: white;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.chat-footer {
+  padding: 0.75rem 1rem;
+
+  border-top: 1px solid #1e293b;
+
+  text-align: center;
+
+  background: #020617;
+}
+
+.chat-footer a {
+  color: #38bdf8;
+  text-decoration: none;
+
+  font-size: 0.9rem;
+}
+
+.chat-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+.chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
+
+/* ========================================
+   MOBILE ROUTE VIEW
+======================================== */
+
+@media (max-width: 768px) {
+
+  :host {
+    display: block;
+    min-height: 100vh;
+  }
+
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+
+    min-height: calc(100vh - 140px);
+  }
+
+  .chat-body {
+    flex: 1;
+  }
+
+  .chat-iframe {
+    width: 100%;
+    height: 75vh;
+    min-height: 700px;
+
+    border: none;
+  }
+}

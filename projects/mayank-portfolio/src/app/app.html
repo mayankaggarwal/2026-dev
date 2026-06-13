@@ -1,9 +1,22 @@
-    <app-header></app-header>
+<app-header />
 
-    <main class="app-main">
-      <div class="container">
-        <router-outlet></router-outlet>
-      </div>
-    </main>
+<div class="layout-wrapper">
 
-    <app-footer></app-footer>
+  <main
+    class="app-main"
+    [class.chat-open]="chatService.isOpen()">
+
+    <div class="container">
+      <router-outlet />
+    </div>
+
+  </main>
+
+  <app-chat
+    class="chat-panel"
+    [class.open]="chatService.isOpen()">
+  </app-chat>
+
+</div>
+
+<app-footer />

@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { ChatService } from '../../core/chat';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 export class Header {
 menuOpen = signal(false);
 
-constructor(private router: Router) {
+constructor(private router: Router,public chatService: ChatService) {
   this.router.events.subscribe(() => {
     this.menuOpen.set(false);
     document.body.style.overflow = 'auto';

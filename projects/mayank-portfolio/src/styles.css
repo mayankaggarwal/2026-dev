@@ -86,3 +86,97 @@ h2 {
   border-radius: 4px;
   font-size: 0.85rem;
 }
+
+.layout-wrapper {
+  position: relative;
+}
+
+.chat-panel {
+  position: fixed;
+
+  top: 64px;
+  right: -600px;
+
+  width: min(600px, 40vw);
+  height: calc(100vh - 64px);
+
+  background: #020617;
+
+  border-left: 1px solid #1e293b;
+
+  z-index: 900;
+
+  transition:
+    right 0.35s ease;
+
+  box-shadow:
+    -12px 0 30px rgba(0, 0, 0, 0.35);
+
+  overflow: hidden;
+}
+
+.chat-panel.open {
+  right: 0;
+}
+
+/* Main content shrink animation */
+
+.app-main {
+  flex: 1;
+  display: flex;
+
+  transition:
+    margin-right 0.35s ease;
+}
+
+.app-main.chat-open {
+  margin-right: min(600px, 40vw);
+}
+
+/* ========================================
+   CHAT BUTTON
+======================================== */
+
+.chat-btn {
+  border: none;
+
+  background: #38bdf8;
+  color: #020617;
+
+  padding: 0.5rem 1rem;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.chat-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+  .chat-panel {
+    display: none;
+  }
+
+  .app-main.chat-open {
+    margin-right: 0;
+  }
+
+  .chat-btn {
+    display: none;
+  }
+}

@@ -57,3 +57,18 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+##Steps to deply
+cd D:\src\2026-dev\projects\mayank-portfolio
+ng build --base-href=/projects/hosting/
+mkdir gh-pages\projects\hosting
+xcopy dist\mayank-portfolio\browser\* gh-pages\projects\hosting\ /E /I /Y
+cd gh-pages
+git init
+git checkout -b gh-pages
+git add .
+git commit -m "Fix base-href for custom domain"
+git remote add origin https://github.com/mayankaggarwal/2026-dev.git
+git push -f origin gh-pages
+cd ..

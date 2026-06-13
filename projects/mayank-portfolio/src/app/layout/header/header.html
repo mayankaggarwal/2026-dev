@@ -11,6 +11,11 @@
       <a routerLink="/skills">Skills</a>
       <a routerLink="/projects">Projects</a>
       <a routerLink="/achievements">Achievements</a>
+      <button
+    class="chat-btn"
+    (click)="chatService.toggle()">
+    💬 Chat
+  </button>
     </nav>
 
     <!-- Hamburger -->
@@ -35,9 +40,10 @@
 <nav class="nav nav-mobile" [class.open]="menuOpen()">
   <a routerLink="/" (click)="closeMenu()">About</a>
   <a routerLink="/experience" (click)="closeMenu()">Experience</a>
-  <a routerLink="/education">Education</a>
+  <a routerLink="/education" (click)="closeMenu()">Education</a>
   <a routerLink="/skills" (click)="closeMenu()">Skills</a>
   <a routerLink="/projects" (click)="closeMenu()">Projects</a>
   <a routerLink="/achievements" (click)="closeMenu()">Achievements</a>
+  <a routerLink="/chat" (click)="closeMenu()">Chat</a>
 </nav>
 </header>
