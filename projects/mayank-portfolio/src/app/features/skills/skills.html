@@ -28,5 +28,19 @@
         <span #skillBadge>{{ item }}</span>
       }
     </div>
+
+    <h3>Messaging</h3>
+    <div class="badges">
+      @for (item of skills.messaging; track $index) {
+        <span #skillBadge>{{ item }}</span>
+      }
+    </div>
+
+    <h3>Tools</h3>
+    <div class="badges">
+      @for (item of skills.tools; track $index) {
+        <span #skillBadge>{{ item }}</span>
+      }
+    </div>
   </div>
 </section>

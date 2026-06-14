@@ -24,7 +24,7 @@ skills = {
     'CSS3'
   ],
   backend: [
-    '.NET Core / .NET 6',
+    '.NET Framework 4.8 / .NET 10',
     'ASP.NET Web API',
     'gRPC',
     'SignalR',

@@ -16,12 +16,6 @@ export class Projects implements AfterViewInit {
 
   @ViewChildren('projectCard') cards!: QueryList<ElementRef>;
 projects = [
-    {
-    name: 'Primary Markets Platform GenAI Integration',
-    description:
-      'Enabled development team to use custom AI agents and skills enabled using markdown files to be used with copilot ',
-    tech: ['.NET','Copilot', 'Agentic AI', 'MCP']
-  },
   {
     name: 'Primary Markets Platform backend Modernization',
     description:

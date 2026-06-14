@@ -5,6 +5,7 @@ import { Footer } from './layout/footer/footer';
 import { ChatService } from './core/chat';
 import { Chat } from './features/chat/chat';
 import { filter } from 'rxjs/operators';
+import { AnalyticsService } from './core/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -19,50 +20,21 @@ import { filter } from 'rxjs/operators';
 })
 export class App {
   protected readonly title = signal('mayank-portfolio');
+   router = inject(Router);
   chatService = inject(ChatService);
-  router = inject(Router);
+  analytics = inject(AnalyticsService);
 
-    constructor() {
-
+  constructor() {
     this.router.events
-      .pipe(
-        filter(event => event instanceof NavigationEnd)
-      )
-      .subscribe(() => {
+  .pipe(
+    filter(event => event instanceof NavigationEnd)
+  )
+  .subscribe((event: any) => {
 
-        if (this.router.url !== '/chat') {
-          this.chatService.lastRoute = this.router.url;
-        }
+    this.analytics.trackPageView(
+      event.urlAfterRedirects
+    );
 
-      });
-
-    this.syncChatMode();
-  }
-  @HostListener('window:resize')
-  onResize() {
-    this.syncChatMode();
-  }
-
-  private syncChatMode() {
-
-    const mobile = window.innerWidth <= 768;
-
-    if (mobile) {
-
-      // Desktop panel should never remain open
-      this.chatService.close();
-
-    } else {
-
-      // Desktop mode should never remain on chat route
-      if (this.router.url === '/chat') {
-
-        this.router.navigateByUrl(
-          this.chatService.lastRoute || '/'
-        );
-
-      }
-
-    }
+  });
   }
 }

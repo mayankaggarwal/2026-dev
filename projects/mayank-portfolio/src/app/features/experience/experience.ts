@@ -18,7 +18,7 @@ export class Experience implements AfterViewInit  {
   @ViewChild('timeline') timeline!: ElementRef;
 experience = [
   {
-    role: 'Lead II',
+    role: 'Principal Software Engineer',
     company: 'S&P Global',
     period: 'June 2023 – Present',
     highlights: [

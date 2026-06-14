@@ -166,17 +166,26 @@ h2 {
    MOBILE
 ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width:768px) {
 
   .chat-panel {
-    display: none;
+
+    top: 64px;
+
+    right: -100%;
+
+    width: 100%;
+
+    height: calc(100vh - 64px);
+
+    border-left: none;
+  }
+
+  .chat-panel.open {
+    right: 0;
   }
 
   .app-main.chat-open {
     margin-right: 0;
-  }
-
-  .chat-btn {
-    display: none;
   }
 }

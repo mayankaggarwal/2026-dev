@@ -29,6 +29,11 @@ constructor(private router: Router,public chatService: ChatService) {
 
   closeMenu() {
       document.body.style.overflow = 'auto';
-  this.menuOpen.set(false);
+    this.menuOpen.set(false);
+  }
+
+  openChatAndCloseMenu() {
+    this.chatService.open();
+    this.closeMenu();
   }
 }
