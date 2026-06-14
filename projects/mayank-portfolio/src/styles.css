@@ -112,7 +112,10 @@ h2 {
   box-shadow:
     -12px 0 30px rgba(0, 0, 0, 0.35);
 
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 .chat-panel.open {
@@ -169,20 +172,19 @@ h2 {
 @media (max-width:768px) {
 
   .chat-panel {
-
     top: 64px;
-
     right: -100%;
-
     width: 100%;
-
-    height: calc(100vh - 64px);
-
+    height: calc(100dvh - 64px);
     border-left: none;
   }
 
   .chat-panel.open {
     right: 0;
+  }
+
+  .chat-container {
+    height: 100%;
   }
 
   .app-main.chat-open {
