@@ -55,6 +55,7 @@ namespace ExtensionsAI.labs
             services.AddKeyedScoped<IRunner, Day2.MinimalAssistant>(3);
             services.AddKeyedScoped<IRunner, Day3.MyProfileAssistant>(4);
             services.AddKeyedScoped<IRunner, Day3.MyProfileAssistantWithEvaluation>(5);
+            services.AddKeyedScoped<IRunner, Day4.OpenAIAgentsTracer>(6);
 
             return services;
         }

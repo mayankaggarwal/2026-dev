@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="itext" Version="9.6.0" />
+    <PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.10.0" />
     <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.6.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.8" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.8" />
