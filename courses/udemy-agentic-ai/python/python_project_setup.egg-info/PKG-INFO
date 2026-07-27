@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: python-project-setup
+Version: 0.1.0
+Summary: Simple UV-based CLI app for environment-driven configuration
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: typer>=0.12.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: langchain-openai>=1.4.1
+
+# Python project setup demo
+
+This project demonstrates a simple UV-based CLI app that loads environment-specific settings from .env files.
