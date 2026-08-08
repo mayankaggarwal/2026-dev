@@ -38,3 +38,13 @@ uv add langgraph langchain langchain-openai langchain-community langchain-tavily
 
 8. Add Agents using backend.py
 
+9. Create the FAST API endpoints usin app.py
+
+10. Add static and template files for javascript, css and html
+
+11. run the application using uv run app.py
+
+12. Create the dockerfile and dockerignore file
+
+13. On render create a new web service and provide the url of your public repository
+

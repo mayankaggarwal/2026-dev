@@ -32,9 +32,9 @@ def get_database_url() -> str:
     if not database_url:
         raise ValueError("DATABASE_URL environment variable is not set")
 
-    if "sslmode=" not in database_url:
-        separator = "&" if "?" in database_url else "?"
-        database_url += f"{database_url}{separator}sslmode=require"
+    # if "sslmode=" not in database_url:
+    #     separator = "&" if "?" in database_url else "?"
+    #     database_url += f"{database_url}{separator}sslmode=require"
 
     return database_url
 
@@ -191,12 +191,12 @@ graph.add_edge("final_agent", END)
 
 DATABASE_URL = get_database_url()
 
-# _conn = psycopg.connect(DATABASE_URL, autocommit=True, row_factory=dict_row)
+_conn = psycopg.connect(DATABASE_URL, autocommit=True, row_factory=dict_row)
 
-# checkpointer = PostgresSaver(_conn)
-# checkpointer.setup()
+checkpointer = PostgresSaver(_conn)
+checkpointer.setup()
 
-travel_graph = graph.compile()
+travel_graph = graph.compile(checkpointer=checkpointer)
 
 # #######################
 # Function for FAST API

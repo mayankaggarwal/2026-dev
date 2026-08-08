@@ -15,5 +15,5 @@ response = run_travel_agent(
     thread_id="test_user"
 )
 
-print("\nFINAL RESPONSE:\n")
+print(f"\nFINAL RESPONSE: {response['thread_id']}\n")
 print(response["answer"])
