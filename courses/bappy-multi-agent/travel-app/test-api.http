@@ -8,6 +8,16 @@ POST http://localhost:8000/api/travel
 Content-Type: application/json
 
 {
-  "message": "Plan a trip from India to Nepal",
-  "thread_id": "trip_to_nepal"
+  "message": "Plan a trip from India to Nepal for 5 days, including sightseeing and adventure activities starting October first week",
+  "thread_id": "trip_to_nepal_5days"
 }
+
+### Call Run agent endpoint
+POST http://localhost:8000/api/travel/approve
+Content-Type: application/json
+
+{
+  "approved": true,
+  "thread_id": "trip_to_nepal_5days"
+}
+

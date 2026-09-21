@@ -4,9 +4,9 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 import traceback
-from backend import run_travel_agent
+from backend_withguard import resume_travel_agent, run_travel_agent
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -27,6 +27,11 @@ templates = Jinja2Templates(
 class TravelRequest(BaseModel):
     message: str
     thread_id: str | None = None
+
+class ApprovalRequest(BaseModel):
+    thread_id: str = Field(min_length=1, description="The unique identifier for the travel plan thread.")
+    approved: bool
+    feedback: str = ""
 
 @app.get("/health", response_class=JSONResponse)
 async def health_check():
@@ -60,12 +65,7 @@ async def travel_planner(request_data: TravelRequest):
         return JSONResponse(
             content={
                 "success": True,
-                "thread_id": result["thread_id"],
-                "answer": result["answer"],
-                "flight_results": result["flight_results"],
-                "hotel_results": result["hotel_results"],
-                "itinerary": result["itinerary"],
-                "llm_calls": result["llm_calls"],
+                **result
             }
         )
     except Exception as e:
@@ -77,6 +77,39 @@ async def travel_planner(request_data: TravelRequest):
                 "success": False,
                 "error": str(e)
                 }
+        )
+
+@app.post("/api/travel/approve")
+async def approve_travel_plan(request_data: ApprovalRequest):
+    try:
+        if not request_data.approved and not request_data.feedback.strip():
+            return JSONResponse(
+                status_code=400,
+                content={
+                    "success": False,
+                    "error": "Feedback is required when disapproving a travel plan."
+                }
+            )
+        
+        result = resume_travel_agent(
+            thread_id=request_data.thread_id,
+            approved=request_data.approved,
+            feedback=request_data.feedback
+        )
+        return JSONResponse(
+            content={
+                "success": True,
+                **result
+            }
+        )
+    except Exception as exc:
+        print("APPROVAL ERROR:", exc)
+        return JSONResponse(
+            status_code=500,
+            content={
+                "success": False,
+                "error": str(exc)
+            }
         )
 
 @app.get("/", response_class=HTMLResponse)
